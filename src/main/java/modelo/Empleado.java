@@ -9,5 +9,19 @@ package modelo;
  * @author tobon
  */
 public class Empleado {
-    
+        protected String nombre;
+    protected double salarioBase;
+
+    public Empleado(String nombre, double SalarioBase) {
+        this.nombre = nombre;
+        this.salarioBase = SalarioBase;
+    }
+     public double calcularPago(){
+    return salarioBase;
+}
+
+    public String getNombre() {
+        return nombre;
+    }
+     
 }

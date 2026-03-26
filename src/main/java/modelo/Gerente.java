@@ -8,6 +8,18 @@ package modelo;
  *
  * @author tobon
  */
-public class Gerente {
-    
+public class Gerente extends Empleado {
+
+    private double bono;
+
+    public Gerente(String nombre, double salarioBase, double bono) {
+        super(nombre, salarioBase);
+        this.bono = bono;
+    }
+
+    @Override
+    public double calcularPago() {
+        return salarioBase + bono;
+    }
+
 }
