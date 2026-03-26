@@ -8,21 +8,42 @@ package controlador;
  *
  * @author tobon
  */
+import modelo.Empleado;
+import modelo.Gerente;
+import java.util.ArrayList;
+
 public class NominaController {
-    protected String nombre;
-    protected double salarioBase;
 
-    public NominaController(String nombre, double SalarioBase) {
-        this.nombre = nombre;
-        this.salarioBase = SalarioBase;
+    private ArrayList<Empleado> listaEmpleados;
+
+    public NominaController() {
+        this.listaEmpleados = new ArrayList<>();
     }
-     public double calcularPago(){
-    return salarioBase;
-}
 
-    public String getNombre() {
-        return nombre;
+    public void registrarEmpleados(Empleado e) {
+        listaEmpleados.add(e);
+
     }
-     
 
+    public Empleado buscar(String nombre) {
+        for (Empleado e : listaEmpleados) {
+            if (e.getNombre().equalsIgnoreCase(nombre)) {
+                return e;
+            }
+
+        }
+        return null;
+    }
+
+    public Empleado buscar(int indice) {
+
+        if (indice >= 0 && indice < listaEmpleados.size()) {
+            return listaEmpleados.get(indice);
+        }
+        return null;
+    }
+
+    public ArrayList<Empleado> obtenerLista() {
+        return listaEmpleados;
+    }
 }
